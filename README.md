@@ -14,6 +14,14 @@ Automatisation Node.js qui synchronise **5 sources de données** (TikTok Ads, Re
 | **PostHog** | First opens, Paywall views, Accept/Decline wall, Cohortes rétention J7/J30 | Quotidien |
 | **Google Sheets** | Écriture de tout dans la feuille "Daily numbers" + onglet "Cohortes" | Sortie |
 
+## 📋 Template Google Sheet (à dupliquer)
+
+👉 **[Faire une copie du template](https://docs.google.com/spreadsheets/d/1mzCr-gAH-N9vmIT5K_87EBuyIvsXQQMhoHJlTDkg0rw/copy)**
+
+Ce template contient tous les onglets et formules attendus par les scripts (Daily numbers, Dashboard, Cohortes, History). Tu cliques, ça crée une copie dans ton propre Drive, et tu n'as plus qu'à connecter ton service account dessus (cf. étape Google Sheets ci-dessous).
+
+> Lien partagé public en lecture seule : [voir le template](https://docs.google.com/spreadsheets/d/1mzCr-gAH-N9vmIT5K_87EBuyIvsXQQMhoHJlTDkg0rw/edit?usp=sharing)
+
 ## 🚀 Installation
 
 ```bash
@@ -36,9 +44,10 @@ cp examples/posthog_config.example.json posthog_config.json
 
 ### 1. Google Sheets (`sync_config.json` + `service-account.json`)
 
+- **Duplique le [template Google Sheet](https://docs.google.com/spreadsheets/d/1mzCr-gAH-N9vmIT5K_87EBuyIvsXQQMhoHJlTDkg0rw/copy)** dans ton Drive
 - Crée un **service account** Google Cloud → télécharge sa clé JSON → place-la à la racine sous le nom `service-account.json`
 - Active l'API Google Sheets dans le projet GCP
-- **Partage ton Google Sheet** avec l'email du service account (en tant qu'éditeur)
+- **Partage ta copie du sheet** avec l'email du service account (en tant qu'éditeur)
 - Récupère l'ID du sheet dans son URL (`docs.google.com/spreadsheets/d/{SHEET_ID}/edit`)
 - Renseigne `sync_config.json` :
   ```json
