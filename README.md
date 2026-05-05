@@ -1,4 +1,4 @@
-# Punchlines Ads Sync
+# Ads Numbers Sync
 
 Automatisation Node.js qui synchronise **5 sources de données** (TikTok Ads, RevenueCat, App Store Connect, PostHog, Google Sheets) dans une feuille Google Sheets pour piloter ses campagnes ads quotidiennement.
 
@@ -25,8 +25,8 @@ Ce template contient tous les onglets et formules attendus par les scripts (Dail
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/harryjmg/punchlines-ads-sync.git
-cd punchlines-ads-sync
+git clone https://github.com/harryjmg/ads-numbers-sync.git
+cd ads-numbers-sync
 npm install
 ```
 
@@ -170,19 +170,19 @@ Crée un fichier `~/Library/LaunchAgents/com.your-app.sync-ads.plist` :
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/path/to/punchlines-ads-sync/sync_ads.sh</string>
+    <string>/path/to/ads-numbers-sync/sync_ads.sh</string>
   </array>
   <key>WorkingDirectory</key>
-  <string>/path/to/punchlines-ads-sync</string>
+  <string>/path/to/ads-numbers-sync</string>
   <key>StartCalendarInterval</key>
   <dict>
     <key>Hour</key><integer>5</integer>
     <key>Minute</key><integer>0</integer>
   </dict>
   <key>StandardOutPath</key>
-  <string>/path/to/punchlines-ads-sync/logs/sync_ads.log</string>
+  <string>/path/to/ads-numbers-sync/logs/sync_ads.log</string>
   <key>StandardErrorPath</key>
-  <string>/path/to/punchlines-ads-sync/logs/sync_ads_error.log</string>
+  <string>/path/to/ads-numbers-sync/logs/sync_ads_error.log</string>
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
@@ -201,7 +201,7 @@ launchctl load ~/Library/LaunchAgents/com.your-app.sync-ads.plist
 ### Automatiser sur Linux — cron
 
 ```cron
-0 5 * * * cd /path/to/punchlines-ads-sync && ./sync_ads.sh >> logs/sync_ads.log 2>&1
+0 5 * * * cd /path/to/ads-numbers-sync && ./sync_ads.sh >> logs/sync_ads.log 2>&1
 ```
 
 ## 🐛 Troubleshooting
