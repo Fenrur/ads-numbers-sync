@@ -1,0 +1,6 @@
+{
+  "app_id": "YOUR_TIKTOK_DEVELOPER_APP_ID",
+  "app_secret": "YOUR_TIKTOK_DEVELOPER_APP_SECRET",
+  "access_token": "YOUR_TIKTOK_ACCESS_TOKEN",
+  "advertiser_id": "YOUR_ADVERTISER_ID"
+}

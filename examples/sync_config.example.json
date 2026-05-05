@@ -1,0 +1,5 @@
+{
+  "sheet_id": "YOUR_GOOGLE_SHEET_ID",
+  "sheet_name": "Daily numbers",
+  "service_account_file": "service-account.json"
+}

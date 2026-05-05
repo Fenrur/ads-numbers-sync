@@ -1,0 +1,9 @@
+{
+  "key_id": "YOUR_ASC_KEY_ID",
+  "issuer_id": "YOUR_ASC_ISSUER_ID",
+  "key_file": "AuthKey_YOUR_KEY_ID.p8",
+  "vendor_number": "YOUR_VENDOR_NUMBER",
+  "app_id": "YOUR_APP_ID",
+  "ongoing_report_request_id": "YOUR_ANALYTICS_ONGOING_REPORT_REQUEST_ID",
+  "snapshot_report_request_id": "YOUR_ANALYTICS_SNAPSHOT_REPORT_REQUEST_ID"
+}

@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Configs avec credentials (à la racine)
+sync_config.json
+tiktok_api_config.json
+rc_api_config.json
+asc_api_config.json
+posthog_config.json
+service-account.json
+*.p8
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# Données générées
+archive/data/

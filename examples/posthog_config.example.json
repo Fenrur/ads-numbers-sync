@@ -1,0 +1,5 @@
+{
+  "host": "eu.i.posthog.com",
+  "project_id": "YOUR_POSTHOG_PROJECT_ID",
+  "api_key": "phx_YOUR_POSTHOG_PERSONAL_API_KEY"
+}

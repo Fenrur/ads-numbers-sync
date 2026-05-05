@@ -1,0 +1,14 @@
+{
+  "name": "punchlines-ads-sync",
+  "version": "1.0.0",
+  "description": "Sync TikTok Ads + RevenueCat + App Store Connect + PostHog data into a Google Sheet for daily ads tracking.",
+  "main": "sync_all_data.js",
+  "scripts": {
+    "sync": "node sync_all_data.js"
+  },
+  "dependencies": {
+    "googleapis": "^171.4.0",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "license": "MIT"
+}
