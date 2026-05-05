@@ -12,7 +12,7 @@ const path = require('path');
 const zlib = require('zlib');
 
 // Configuration
-const CONFIG_FILE = path.join(__dirname, 'asc_api_config.json');
+const CONFIG_FILE = path.join(__dirname, '..', 'asc_api_config.json');
 
 function loadConfig() {
     if (!fs.existsSync(CONFIG_FILE)) {
@@ -23,7 +23,7 @@ function loadConfig() {
 }
 
 function generateToken(config) {
-    const privateKey = fs.readFileSync(path.join(__dirname, config.key_file), 'utf8');
+    const privateKey = fs.readFileSync(path.join(__dirname, '..', config.key_file), 'utf8');
     const now = Math.floor(Date.now() / 1000);
     return jwt.sign(
         { iss: config.issuer_id, iat: now, exp: now + 1200, aud: 'appstoreconnect-v1' },

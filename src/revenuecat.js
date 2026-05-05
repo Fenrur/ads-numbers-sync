@@ -20,7 +20,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'rc_api_config.json'), 'utf8'));
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'rc_api_config.json'), 'utf8'));
 const API_KEY = config.api_key_v2;
 const PROJECT_ID = config.project_id;
 const BASE_URL = config.base_url || 'https://api.revenuecat.com/v2';
@@ -126,7 +126,7 @@ async function fetchAndParseTrialData(startDate, endDate) {
         }
 
         // Sauvegarde CSV (même comportement que l'ancien)
-        const csvDir = path.join(__dirname, 'archive', 'data', 'trial_conversion');
+        const csvDir = path.join(__dirname, '..', 'archive', 'data', 'trial_conversion');
         if (!fs.existsSync(csvDir)) fs.mkdirSync(csvDir, { recursive: true });
         const csvPath = path.join(csvDir, `trial_conversion_${startDate}_to_${endDate}.csv`);
         const csvLines = ['date,incomplete,new_customers,trials,converted,pending,abandoned'];

@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration PostHog (depuis posthog_config.json — gitignored)
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'posthog_config.json'), 'utf8'));
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'posthog_config.json'), 'utf8'));
 const POSTHOG_HOST = config.host || 'eu.i.posthog.com';
 const PROJECT_ID = config.project_id;
 const API_KEY = config.api_key;

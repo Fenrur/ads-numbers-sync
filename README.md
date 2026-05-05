@@ -140,20 +140,20 @@ Headers ligne 11, données ligne 12+. Les colonnes sont détectées par leur lib
 }
 ```
 
-> Adapte les `event` names dans `parse_posthog_data.js` selon les events que ton app envoie (`paywall_viewed`, `onboarding_step_viewed`, etc.).
+> Adapte les `event` names dans `src/posthog.js` selon les events que ton app envoie (`paywall_viewed`, `onboarding_step_viewed`, etc.).
 
 ## ▶️ Utilisation
 
 ### Run manuel
 
 ```bash
-./sync_ads.sh
+./sync.sh
 ```
 
 ou directement :
 
 ```bash
-node sync_all_data.js
+node sync.js
 ```
 
 ### Automatiser à 5h00 chaque matin (macOS — launchd)
@@ -170,7 +170,7 @@ Crée un fichier `~/Library/LaunchAgents/com.your-app.sync-ads.plist` :
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/path/to/ads-numbers-sync/sync_ads.sh</string>
+    <string>/path/to/ads-numbers-sync/sync.sh</string>
   </array>
   <key>WorkingDirectory</key>
   <string>/path/to/ads-numbers-sync</string>
@@ -201,7 +201,7 @@ launchctl load ~/Library/LaunchAgents/com.your-app.sync-ads.plist
 ### Automatiser sur Linux — cron
 
 ```cron
-0 5 * * * cd /path/to/ads-numbers-sync && ./sync_ads.sh >> logs/sync_ads.log 2>&1
+0 5 * * * cd /path/to/ads-numbers-sync && ./sync.sh >> logs/sync.log 2>&1
 ```
 
 ## 🐛 Troubleshooting
@@ -213,26 +213,27 @@ launchctl load ~/Library/LaunchAgents/com.your-app.sync-ads.plist
 | `HTTP 401 TikTok` | `access_token` expiré | Régénérer un long-lived token |
 | `HTTP 401 ASC` | Clé `.p8` mal placée ou expirée | Vérifier `key_file` dans `asc_api_config.json` |
 | Données ASC du jour J manquantes | ASC Sales API a 1j de retard, Analytics Reports 2-3j | Normal, attendre |
-| Timeout global 5 min | ASC très lent ou réseau | Augmenter le timeout dans `sync_all_data.js` (chercher `5 * 60 * 1000`) |
+| Timeout global 5 min | ASC très lent ou réseau | Augmenter le timeout dans `sync.js` (chercher `5 * 60 * 1000`) |
 
 ## 📁 Structure du projet
 
 ```
 .
-├── sync_all_data.js          # orchestrateur principal
-├── parse_tiktok_data.js      # TikTok Ads API
-├── parse_rc_api.js           # RevenueCat API V2
-├── parse_asc_data.js         # App Store Connect
-├── parse_posthog_data.js     # PostHog
-├── sync_ads.sh               # script shell wrapper
+├── sync.js                   # orchestrateur principal
+├── sync.sh                   # wrapper shell
+├── src/
+│   ├── tiktok.js             # TikTok Ads API
+│   ├── revenuecat.js         # RevenueCat API V2
+│   ├── app-store-connect.js  # App Store Connect
+│   └── posthog.js            # PostHog
+├── examples/                 # configs exemples (placeholders)
+│   ├── sync_config.example.json
+│   ├── tiktok_api_config.example.json
+│   ├── rc_api_config.example.json
+│   ├── asc_api_config.example.json
+│   └── posthog_config.example.json
 ├── package.json
-├── .gitignore
-└── examples/                 # configs exemples (placeholder)
-    ├── sync_config.example.json
-    ├── tiktok_api_config.example.json
-    ├── rc_api_config.example.json
-    ├── asc_api_config.example.json
-    └── posthog_config.example.json
+└── .gitignore
 ```
 
 ## 📝 License

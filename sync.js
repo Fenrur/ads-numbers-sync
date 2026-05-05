@@ -17,12 +17,10 @@ const SERVICE_ACCOUNT_FILE = path.isAbsolute(CFG.service_account_file)
     : path.join(__dirname, CFG.service_account_file);
 
 // Import des modules de données
-// RevenueCat : migré du scraping cookies vers l'API V2 officielle (5 mai 2026).
-// Anciens scripts conservés dans archive/scripts/cookies-method/.
-const { fetchAndParseTrialData, fetchDailyRefunds, fetchDailyDirectSubs } = require('./parse_rc_api.js');
-const { fetchAndParseTikTokData } = require('./parse_tiktok_data.js');
-const { fetchDailyASCData } = require('./parse_asc_data.js');
-const { fetchDailyPaywallViews, fetchDailyFirstOpens, fetchDailyAcceptWall, fetchDailyDeclineWall, fetchAllCohortRetention } = require('./parse_posthog_data.js');
+const { fetchAndParseTrialData, fetchDailyRefunds, fetchDailyDirectSubs } = require('./src/revenuecat');
+const { fetchAndParseTikTokData } = require('./src/tiktok');
+const { fetchDailyASCData } = require('./src/app-store-connect');
+const { fetchDailyPaywallViews, fetchDailyFirstOpens, fetchDailyAcceptWall, fetchDailyDeclineWall, fetchAllCohortRetention } = require('./src/posthog');
 
 /**
  * Initialise l'authentification Google Sheets

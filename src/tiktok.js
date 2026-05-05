@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration - Chargée depuis tiktok_api_config.json
-const CONFIG_FILE = path.join(__dirname, 'tiktok_api_config.json');
+const CONFIG_FILE = path.join(__dirname, '..', 'tiktok_api_config.json');
 
 function loadConfig() {
     if (!fs.existsSync(CONFIG_FILE)) {
