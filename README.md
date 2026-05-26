@@ -91,7 +91,7 @@ Headers ligne 11, données ligne 12+. Les colonnes sont détectées par leur lib
 
 ### 3. RevenueCat API V2 (`rc_api_config.json`)
 
-- Va sur [RevenueCat → Project Settings → API Keys](https://app.revenuecat.com/)
+- Va sur [RevenueCat → \[Ton Project\] → App & providers → Api Keys](https://app.revenuecat.com/)
 - Crée une **clé V2** avec ces permissions cochées (READ uniquement) :
   - `customer:read`
   - `charts_metrics:charts:read` ⭐ (indispensable pour les charts utilisés)
